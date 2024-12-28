@@ -44,22 +44,26 @@ Happy New Year</textarea>
     <div id="defaultImageContainer">
         <div class="image-container">
             <label class="image-choice">
-                <input type="radio" id="pic1" name="picture" value="https://via.placeholder.com/150" checked />
+                <input type="radio" id="pic1" name="picture"
+                    value="https://phoomdev.github.io/tyt-hny2025/images/hny-1.jpg" checked />
                 <img src="./images/hny-1.jpg" alt="Pic 1" />
             </label>
 
             <label class="image-choice">
-                <input type="radio" id="pic2" name="picture" value="https://via.placeholder.com/150/0000FF/808080" />
+                <input type="radio" id="pic2" name="picture"
+                    value="https://phoomdev.github.io/tyt-hny2025/images/hny-2.jpg" />
                 <img src="./images/hny-2.jpg" alt="Pic 2" />
             </label>
 
             <label class="image-choice">
-                <input type="radio" id="pic3" name="picture" value="https://via.placeholder.com/150/FF0000/FFFFFF" />
+                <input type="radio" id="pic3" name="picture"
+                    value="https://phoomdev.github.io/tyt-hny2025/images/hny-3.jpg" />
                 <img src="./images/hny-3.jpg" alt="Pic 3" />
             </label>
 
             <label class="image-choice">
-                <input type="radio" id="pic4" name="picture" value="https://via.placeholder.com/150/FFFF00/000000" />
+                <input type="radio" id="pic4" name="picture"
+                    value="https://phoomdev.github.io/tyt-hny2025/images/hny-4.jpg" />
                 <img src="./images/hny-4.jpg" alt="Pic 4" />
             </label>
         </div>
@@ -126,6 +130,30 @@ Happy New Year</textarea>
                 contents: {
                     type: 'bubble',
                     size: 'giga',
+                    header: {
+                        type: "box",
+                        layout: "vertical",
+                        contents: [
+                            {
+                                type: "image",
+                                url: "https://phoomdev.github.io/tyt-hny2025/images/tyt-logo.png",
+                                align: "center",
+                                position: "absolute"
+                            }
+                        ],
+                        paddingAll: "20px",
+                        backgroundColor: "#ffffff",
+                        spacing: "md",
+                        height: "10px",
+                        paddingTop: "22px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        action: {
+                            type: "uri",
+                            label: "action",
+                            uri: "https://www.toyotayasothorn.com/"
+                        }
+                    },
                     hero: {
                         type: 'image',
                         url: imageUrl, // ใช้ imageUrl ที่ดึงมาจาก input
@@ -142,6 +170,7 @@ Happy New Year</textarea>
                                 text: headText,
                                 weight: 'bold',
                                 size: 'xl',
+                                color: "#007bff",
                                 align: 'center',
                             },
                             {
@@ -180,7 +209,7 @@ Happy New Year</textarea>
                                     {
                                         type: 'text',
                                         wrap: true,
-                                        color: '#666666',
+                                        color: '#007bff',
                                         size: 'sm',
                                         flex: 5,
                                         text: freeText, // ใช้ freeText ที่ดึงมาจาก textarea
@@ -202,7 +231,7 @@ Happy New Year</textarea>
                                                 type: 'text',
                                                 text: profile.displayName, // ใช้ displayName จาก profile
                                                 wrap: true,
-                                                color: '#666666',
+                                                color: '#007bff',
                                                 size: 'sm',
                                                 flex: 3,
                                             },
@@ -220,7 +249,7 @@ Happy New Year</textarea>
                                                 aspectMode: 'cover',
                                             },
                                         ],
-                                        cornerRadius: 'lg',
+                                        cornerRadius: '15px',
                                     },
                                 ],
                             },
@@ -231,6 +260,25 @@ Happy New Year</textarea>
                         type: 'box',
                         layout: 'horizontal',
                         contents: [
+                            {
+                                type: "separator",
+                                margin: "xxl"
+                            },
+                            {
+                                type: "box",
+                                layout: "horizontal",
+                                margin: "md",
+                                contents: [
+                                    {
+                                        type: "text",
+                                        text: "ยึดมั่น คุณธรรม | ทันสมัย | ได้มาตรฐานสากล",
+                                        size: "xs",
+                                        color: "#aaaaaa",
+                                        flex: 0
+                                    }
+                                ],
+                                justifyContent: "center"
+                            },
                             {
                                 type: 'button',
                                 action: {
