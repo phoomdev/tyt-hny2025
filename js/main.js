@@ -43,7 +43,7 @@ async function shareMsg() {
     const profile = await liff.getProfile();
 
     // สร้าง Flex Message
-    const flexMessage2 = {
+    const flexMessage = {
         type: 'flex',
         altText: `สุขสันต์วันปีใหม่ 2025 นะ โดย ${profile.displayName}`,
         contents: {
@@ -170,7 +170,7 @@ async function shareMsg() {
                                         aspectMode: "cover"
                                     }
                                 ],
-                                cornerRadius: "sm",
+                                cornerRadius: "lg",
                                 alignItems: "center",
                                 justifyContent: "center"
                             }
@@ -230,13 +230,13 @@ async function shareMsg() {
     };
 
     // แปลง Flex Message เป็น JSON string
-    // const flexMessageJson = JSON.stringify(flexMessage2, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+    // const flexMessageJson = JSON.stringify(flexMessage, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
 
     // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
     //document.getElementById("flexMessageJson").textContent = flexMessageJson;
     // แชร์ Flex Message
     try {
-        const result = await liff.shareTargetPicker([flexMessage2]);
+        const result = await liff.shareTargetPicker([flexMessage]);
         if (result) {
             console.log('Message shared successfully:', result);
             alert('ส่งสำเร็จ');
@@ -254,7 +254,6 @@ async function shareMsg() {
 async function getUserProfile() {
     const profile = await liff.getProfile()
 }
-
 
 async function redirect() {
     try {
