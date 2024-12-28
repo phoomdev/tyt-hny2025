@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover"
+    />
+    <title>โตโยต้ายโสธร ส่งมอบคำอวยพรปีใหม่ 2025</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* เพิ่ม CSS เพื่อจัดรูปแบบ radio button */
+      .image-choice {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>กำหนดหัวข้อความอวยพร</h2>
+    <textarea
+      id="headText"
+      maxlength="50"
+      placeholder="ใส่ข้อความที่นี่ (ไม่เกิน 50 ตัวอักษร)"
+    >
+Happy New Year</textarea
+    >
+
+    <h2>กำหนดข้อความอวยพร</h2>
+    <p>ไม่เกิน200 ตัวอักษร</p>
+    <textarea
+      id="freeText"
+      maxlength="200"
+      placeholder="ใส่ข้อความที่นี่ (ไม่เกิน 200 ตัวอักษร)"
+    >
+สวัสดีปีใหม่ 2568  ขอให้ปีนี้เป็นปีที่สดใส
+เต็มไปด้วยความสุข สมหวังในทุกสิ่ง
+และประสบความสำเร็จในทุกๆ ด้าน</textarea
+    >
+
+    <h2>เลือกรูปภาพ</h2>
+
+    <div>
+      <label class="image-choice">
+        <input
+          type="radio"
+          id="useDefaultImage"
+          name="imageSource"
+          value="default"
+          checked
+        />
+        ใช้รูปภาพจากเว็บ
+      </label>
+      <label class="image-choice">
+        <input
+          type="radio"
+          id="useCustomURL"
+          name="imageSource"
+          value="custom"
+        />
+        ใส่ URL รูปภาพเอง
+      </label>
+    </div>
+
+    <div id="defaultImageContainer">
+      <div class="image-container">
+        <label class="image-choice">
+          <input
+            type="radio"
+            id="pic1"
+            name="picture"
+            value="https://via.placeholder.com/150"
+            checked
+          />
+          <img src="./images/hny-1.jpg" alt="Pic 1" />
+        </label>
+
+        <label class="image-choice">
+          <input
+            type="radio"
+            id="pic2"
+            name="picture"
+            value="https://via.placeholder.com/150/0000FF/808080"
+          />
+          <img
+            src="./images/hny-2.jpg"
+            alt="Pic 2"
+          />
+        </label>
+
+        <label class="image-choice">
+          <input
+            type="radio"
+            id="pic3"
+            name="picture"
+            value="https://via.placeholder.com/150/FF0000/FFFFFF"
+          />
+          <img
+            src="./images/hny-3.jpg"
+            alt="Pic 3"
+          />
+        </label>
+
+        <label class="image-choice">
+          <input
+            type="radio"
+            id="pic4"
+            name="picture"
+            value="https://via.placeholder.com/150/FFFF00/000000"
+          />
+          <img
+            src="./images/hny-4.jpg"
+            alt="Pic 4"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div id="customURLContainer" style="display: none">
+      <h2>ใส่ URL รูปภาพขนาด 1.5:1 เท่านั้น</h2>
+      <input type="url" id="urlPic" value="https://example.com/image.jpg" />
+    </div>
+
+    <button id="shareButton">แชร์</button>
+    <pre id="flexMessageJson"></pre>
+
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+    <script>
+      // ฟังก์ชันสำหรับแสดง/ซ่อน input URL ตาม radio button ที่เลือก
+      function toggleImageSource() {
+        const useDefaultImage =
+          document.getElementById('useDefaultImage').checked;
+        document.getElementById('defaultImageContainer').style.display =
+          useDefaultImage ? 'block' : 'none';
+        document.getElementById('customURLContainer').style.display =
+          useDefaultImage ? 'none' : 'block';
+      }
+
+      // เรียกใช้ฟังก์ชัน toggleImageSource() ตอนเริ่มต้น
+      toggleImageSource();
+
+      // เพิ่ม event listener ให้กับ radio button เพื่อเรียกใช้ toggleImageSource()
+      const imageSourceRadios = document.querySelectorAll(
+        'input[name="imageSource"]'
+      );
+      imageSourceRadios.forEach((radio) => {
+        radio.addEventListener('change', toggleImageSource);
+      });
+
+      async function shareMsg() {
+        // ดึงข้อความจาก textarea
+        console.log('shareMsg');
+        const freeText = document.getElementById('freeText').value;
+        const headText = document.getElementById('headText').value;
+
+        // ดึง URL รูปภาพ
+        let imageUrl;
+        if (document.getElementById('useDefaultImage').checked) {
+          const selectedImage = document.querySelector(
+            '#defaultImageContainer input[name="picture"]:checked'
+          );
+          imageUrl = selectedImage
+            ? selectedImage.value
+            : 'https://via.placeholder.com/150'; // default image URL
+        } else {
+          imageUrl = document.getElementById('urlPic').value;
+        }
+
+        // ดึงข้อมูล profile ของผู้ใช้
+        const profile = await liff.getProfile();
+
+        // สร้าง Flex Message
+        const flexMessage = {
+          type: 'flex',
+          altText: `สุขสันต์วันปีใหม่ 2025 นะ โดย ${profile.displayName}`,
+          contents: {
+            type: 'bubble',
+            size: 'giga',
+            hero: {
+              type: 'image',
+              url: imageUrl, // ใช้ imageUrl ที่ดึงมาจาก input
+              aspectRatio: '1.5:1',
+              aspectMode: 'cover',
+              size: 'full',
+            },
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              contents: [
+                {
+                  type: 'text',
+                  text: headText,
+                  weight: 'bold',
+                  size: 'xl',
+                  align: 'center',
+                },
+                {
+                  type: 'box',
+                  layout: 'baseline',
+                  margin: 'md',
+                  contents: [
+                    {
+                      type: 'icon',
+                      size: 'sm',
+                      url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                    },
+                    {
+                      type: 'text',
+                      text: '2025 ',
+                      size: 'sm',
+                      color: '#999999',
+                      margin: 'md',
+                      flex: 0,
+                      align: 'center',
+                    },
+                    {
+                      type: 'icon',
+                      size: 'sm',
+                      url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                    },
+                  ],
+                  spacing: 'md',
+                  justifyContent: 'center',
+                },
+                {
+                  type: 'box',
+                  layout: 'vertical',
+                  margin: 'lg',
+                  contents: [
+                    {
+                      type: 'text',
+                      wrap: true,
+                      color: '#666666',
+                      size: 'sm',
+                      flex: 5,
+                      text: freeText, // ใช้ freeText ที่ดึงมาจาก textarea
+                      align: 'center',
+                    },
+                    {
+                      type: 'box',
+                      layout: 'baseline',
+                      spacing: 'sm',
+                      contents: [
+                        {
+                          type: 'text',
+                          text: 'โดย',
+                          color: '#aaaaaa',
+                          size: 'sm',
+                          flex: 1,
+                        },
+                        {
+                          type: 'text',
+                          text: profile.displayName, // ใช้ displayName จาก profile
+                          wrap: true,
+                          color: '#666666',
+                          size: 'sm',
+                          flex: 3,
+                        },
+                      ],
+                    },
+                    {
+                      type: 'box',
+                      layout: 'vertical',
+                      contents: [
+                        {
+                          type: 'image',
+                          url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
+                          animated: false,
+                          size: 'lg',
+                          aspectMode: 'cover',
+                        },
+                      ],
+                      cornerRadius: 'lg',
+                    },
+                  ],
+                },
+              ],
+              alignItems: 'center',
+            },
+            footer: {
+              type: 'box',
+              layout: 'horizontal',
+              contents: [
+                {
+                  type: 'button',
+                  action: {
+                    type: 'uri',
+                    label: 'ส่งคำอวยพรให้เพื่อน',
+                    uri: 'https://liff.line.me/2006729904-o7RYbjdg',
+                  },
+                  style: 'primary',
+                  flex: 5,
+                },
+                {
+                  type: 'button',
+                  action: {
+                    type: 'uri',
+                    label: 'โตโยต้ายโสธร',
+                    uri: 'https://www.toyotayasothorn.com/',
+                  },
+                  style: 'primary',
+                  flex: 4,
+                },
+              ],
+              spacing: 'sm',
+            },
+          },
+        };
+
+        // แปลง Flex Message เป็น JSON string
+        const flexMessageJson = JSON.stringify(flexMessage, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+
+        // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
+        //document.getElementById("flexMessageJson").textContent = flexMessageJson;
+        document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
+
+        // แชร์ Flex Message
+        await liff.shareTargetPicker([flexMessage]);
+      }
+
+      async function getUserProfile() {
+        const profile = await liff.getProfile();
+      }
+
+      async function main() {
+        await liff.init({
+          liffId: '2006729904-o7RYbjdg', // **อย่าลืมแก้ไข liffId ให้ถูกต้อง**
+        });
+        if (liff.isLoggedIn()) {
+          console.log('Success');
+          getUserProfile();
+        } else {
+          liff.login();
+        }
+        // enable ปุ่ม
+        document.getElementById('shareButton').disabled = false;
+      }
+
+      main();
+
+      // เพิ่ม event listener ให้กับปุ่ม
+      document
+        .getElementById('shareButton')
+        .addEventListener('click', shareMsg);
+    </script>
+  </body>
+</html>

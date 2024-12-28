@@ -1,0 +1,103 @@
+body {
+    font-family: sans-serif;
+    margin: 16px;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 800px; /* กำหนดความกว้างสูงสุดของ container */
+    margin: 0 auto; /* จัด container ให้ตรงกลาง */
+    padding: 20px;
+    background-color: #fff; /* สีพื้นหลัง container */
+    border-radius: 8px; /* ขอบมน */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  
+  #topic {
+    height: 3em;
+  }
+  
+  .image-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .image-choice {
+    display: inline-block;
+    margin: 10px;
+    width: 45%;
+    box-sizing: border-box;
+  }
+  
+  .image-choice img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px; /* ขอบมน */
+  }
+  
+  #customURLContainer {
+    margin-top: 10px;
+  }
+  
+  #customURLContainer input[type='url'] {
+    width: 100%;
+    max-width: 500px;
+    height: 3em;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  
+  #shareButton {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 0;
+    margin: 16px auto;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Media query สำหรับ mobile */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .image-choice {
+      width: 90%;
+      margin: 5px;
+    }
+  }
+  
