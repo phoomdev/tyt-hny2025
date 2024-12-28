@@ -252,7 +252,22 @@ async function shareMsg() {
 }
 
 async function getUserProfile() {
-    const profile = await liff.getProfile();
+    const profile = await liff.getProfile()
+}
+
+
+async function redirect() {
+    try {
+        console.log("redirect");
+        //const liffUrl = await liff.permanentLink.createUrlBy(window.location.href);
+        const liffUrl = "line://app/2006729904-e2nNzwPq";
+        console.log("liffUrl:", liffUrl);
+        window.location = liffUrl;
+        setTimeout(() => { liff.closeWindow(); }, "3000");
+    } catch (error) {
+        console.error("Error creating Permanent Link:", error);
+        // แสดงข้อความแจ้งผู้ใช้ หรือจัดการ error ในรูปแบบอื่นๆ
+    }
 }
 
 async function main() {
