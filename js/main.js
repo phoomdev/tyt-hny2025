@@ -160,7 +160,7 @@ async function shareMsg() {
                             },
                             {
                                 type: 'box',
-                                layout: 'vertical',
+                                layout: "vertical",
                                 contents: [
                                     {
                                         type: 'image',
@@ -172,8 +172,6 @@ async function shareMsg() {
                                     },
                                 ],
                                 cornerRadius: "20px",
-                                width: "100px",
-                                height: "100px",
                                 alignItems: "center",
                                 justifyContent: "center"
                             },
