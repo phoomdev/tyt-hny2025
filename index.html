@@ -124,7 +124,7 @@ Happy New Year</textarea>
             const profile = await liff.getProfile();
 
             // สร้าง Flex Message
-            const flexMessageNew = {
+            const flexMessage = {
                 type: 'flex',
                 altText: `สุขสันต์วันปีใหม่ 2025 นะ โดย ${profile.displayName}`,
                 contents: {
@@ -314,7 +314,7 @@ Happy New Year</textarea>
             };
 
             // แปลง Flex Message เป็น JSON string
-            const flexMessageJson = JSON.stringify(flexMessageNew, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+            const flexMessageJson = JSON.stringify(flexMessage, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
 
             // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
             //document.getElementById("flexMessageJson").textContent = flexMessageJson;
@@ -322,7 +322,7 @@ Happy New Year</textarea>
 
             // แชร์ Flex Message
             try {
-                const result = await liff.shareTargetPicker([flexMessageNew]);
+                const result = await liff.shareTargetPicker([flexMessage]);
                 if (result) {
                     console.log('Message shared successfully:', result);
                     document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
