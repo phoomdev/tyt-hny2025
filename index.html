@@ -209,7 +209,7 @@ Happy New Year</textarea>
                                     {
                                         type: 'text',
                                         wrap: true,
-                                        color: '#007bff',
+                                        color: '#111111',
                                         size: 'sm',
                                         flex: 5,
                                         text: freeText, // ใช้ freeText ที่ดึงมาจาก textarea
@@ -249,7 +249,9 @@ Happy New Year</textarea>
                                                 aspectMode: 'cover',
                                             },
                                         ],
-                                        cornerRadius: '15px',
+                                        cornerRadius: "20px",
+                                        width: "72px",
+                                        height: "72px"
                                     },
                                 ],
                             },
@@ -279,6 +281,11 @@ Happy New Year</textarea>
                                 ],
                                 justifyContent: "center"
                             },
+                        ],
+                        spacing: 'sm',
+                        type: 'box',
+                        layout: 'horizontal',
+                        contents: [
                             {
                                 type: 'button',
                                 action: {
