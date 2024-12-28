@@ -171,6 +171,8 @@ async function shareMsg() {
                                     }
                                 ],
                                 cornerRadius: "lg",
+                                width: "120px",
+                                height: "120px",
                                 alignItems: "center",
                                 justifyContent: "center"
                             }
