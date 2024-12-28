@@ -247,9 +247,10 @@ Happy New Year</textarea>
                                                 animated: false,
                                                 size: 'lg',
                                                 aspectMode: 'cover',
+                                                size: "full"
                                             },
                                         ],
-                                        cornerRadius: "20px",
+                                        cornerRadius: "100px",
                                         width: "72px",
                                         height: "72px"
                                     },
@@ -259,53 +260,48 @@ Happy New Year</textarea>
                         alignItems: 'center',
                     },
                     footer: {
-                        type: 'box',
-                        layout: 'horizontal',
+                        type: "box",
+                        layout: "vertical",
                         contents: [
                             {
-                                type: "separator",
-                                margin: "xxl"
+                                type: "separator"
                             },
                             {
                                 type: "box",
-                                layout: "horizontal",
-                                margin: "md",
+                                layout: "vertical",
                                 contents: [
+                                    {
+                                        type: "button",
+                                        action: {
+                                            type: "uri",
+                                            label: "เขียนการ์ดอวยพรให้เพื่อน",
+                                             uri: 'https://liff.line.me/2006729904-o7RYbjdg',
+                                        },
+                                        style: "primary",
+                                        color: "#007bff"
+                                    }
+                                ],
+                                paddingAll: "xxl"
+                            },
+                            {
+                                type: "box",
+                                layout: "vertical",
+                                contents: [
+                                    {
+                                        type: "text",
+                                        text: "โตโยต้ายโสธร",
+                                        color: "#aaaaaa",
+                                        size: "sm"
+                                    },
                                     {
                                         type: "text",
                                         text: "ยึดมั่น คุณธรรม | ทันสมัย | ได้มาตรฐานสากล",
                                         size: "xs",
-                                        color: "#aaaaaa",
-                                        flex: 0
+                                        color: "#aaaaaa"
                                     }
                                 ],
-                                justifyContent: "center"
-                            },
-                        ],
-                        spacing: 'sm',
-                        type: 'box',
-                        layout: 'horizontal',
-                        contents: [
-                            {
-                                type: 'button',
-                                action: {
-                                    type: 'uri',
-                                    label: 'ส่งคำอวยพรให้เพื่อน',
-                                    uri: 'https://liff.line.me/2006729904-o7RYbjdg',
-                                },
-                                style: 'primary',
-                                flex: 5,
-                            },
-                            {
-                                type: 'button',
-                                action: {
-                                    type: 'uri',
-                                    label: 'โตโยต้ายโสธร',
-                                    uri: 'https://www.toyotayasothorn.com/',
-                                },
-                                style: 'primary',
-                                flex: 4,
-                            },
+                                alignItems: "center"
+                            }
                         ],
                         spacing: 'sm',
                     },
