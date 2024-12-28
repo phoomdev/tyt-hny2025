@@ -75,7 +75,7 @@ Happy New Year</textarea>
     </div>
 
     <button id="shareButton">แชร์</button>
-    <pre id="flexMessageJson"></pre>
+    <pre id="flexMessageJsonNew"></pre>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
@@ -124,7 +124,7 @@ Happy New Year</textarea>
             const profile = await liff.getProfile();
 
             // สร้าง Flex Message
-            const flexMessage = {
+            const flexMessageNew = {
                 type: 'flex',
                 altText: `สุขสันต์วันปีใหม่ 2025 นะ โดย ${profile.displayName}`,
                 contents: {
@@ -253,8 +253,8 @@ Happy New Year</textarea>
                                             },
                                         ],
                                         cornerRadius: "100px",
-                                        width: "72px",
-                                        height: "72px"
+                                        width: "90px",
+                                        height: "90px"
                                     },
                                 ],
                             },
@@ -311,18 +311,18 @@ Happy New Year</textarea>
             };
 
             // แปลง Flex Message เป็น JSON string
-            const flexMessageJson = JSON.stringify(flexMessage, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+            const flexMessageJsonNew = JSON.stringify(flexMessageNew, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
 
-            // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
-            //document.getElementById("flexMessageJson").textContent = flexMessageJson;
-            document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
+            // แสดงผล JSON string ใน element ที่มี id="flexMessageJsonNew"
+            //document.getElementById("flexMessageJsonNew").textContent = flexMessageJsonNew;
+            document.getElementById('flexMessageJsonNew').textContent = 'ส่งสำเร็จ';
 
             // แชร์ Flex Message
             try {
-                const result = await liff.shareTargetPicker([flexMessage]);
+                const result = await liff.shareTargetPicker([flexMessageNew]);
                 if (result) {
                     console.log('Message shared successfully:', result);
-                    document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
+                    document.getElementById('flexMessageJsonNew').textContent = 'ส่งสำเร็จ';
                 } else {
                     console.log('Sharing canceled.');
                     alert('ผู้ใช้ยกเลิกการแชร์ข้อความ');
