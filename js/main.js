@@ -168,10 +168,13 @@ async function shareMsg() {
                                         animated: false,
                                         size: 'lg',
                                         aspectMode: 'cover',
-                                        size: "full"
+                                        size: "full",
+                                        align: "center",
                                     },
                                 ],
                                 cornerRadius: "20px",
+                                width: "120px",
+                                height: "120px",
                                 alignItems: "center",
                                 justifyContent: "center"
                             },
