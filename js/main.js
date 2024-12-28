@@ -159,23 +159,18 @@ async function shareMsg() {
                                     justifyContent: "center"
                             },
                             {
-                                type: 'box',
-                                layout: 'vertical',
+                                type: "box",
+                                layout: "vertical",
                                 contents: [
-                                    {
-                                        type: 'image',
-                                        url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
-                                        animated: false,
-                                        size: 'full', // ใช้ full เพื่อให้ภาพเต็มพื้นที่ที่กำหนด
-                                        aspectMode: 'cover', // จัดการการครอบรูป
-                                    }
+                                  {
+                                    type: "image",
+                                    url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
+                                    animated: false,
+                                    size: "lg",
+                                    aspectMode: "cover"
+                                  }
                                 ],
-                                width: '120px',
-                                height: '120px',
-                                backgroundColor: '#FFFFFF', // เพิ่มเพื่อให้เห็นขอบเขต
-                                alignItems: 'center', // จัดศูนย์แนวขวาง
-                                justifyContent: 'center', // จัดศูนย์แนวตั้ง
-                                cornerRadius: '60px' // ทำให้เป็นวงกลม (ถ้าต้องการ)
+                                cornerRadius: "lg"
                             }
                             
                         ],
