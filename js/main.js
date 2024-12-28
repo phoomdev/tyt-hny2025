@@ -155,24 +155,26 @@ async function shareMsg() {
                                         flex: 3,
                                     },
                                 ],
-                                    alignItems: "center",
-                                    justifyContent: "center"
+                                alignItems: "center",
+                                justifyContent: "center"
                             },
                             {
                                 type: "box",
                                 layout: "vertical",
                                 contents: [
-                                  {
-                                    type: "image",
-                                    url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
-                                    animated: false,
-                                    size: "lg",
-                                    aspectMode: "cover"
-                                  }
+                                    {
+                                        type: "image",
+                                        url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
+                                        animated: false,
+                                        size: "lg",
+                                        aspectMode: "cover"
+                                    }
                                 ],
-                                cornerRadius: "lg"
+                                cornerRadius: "sm",
+                                alignItems: "center",
+                                justifyContent: "center"
                             }
-                            
+
                         ],
                     },
                 ],
@@ -194,7 +196,7 @@ async function shareMsg() {
                                 action: {
                                     type: "uri",
                                     label: "เขียนการ์ดอวยพรให้เพื่อน",
-                                     uri: 'https://liff.line.me/2006729904-o7RYbjdg',
+                                    uri: 'https://liff.line.me/2006729904-o7RYbjdg',
                                 },
                                 style: "primary",
                                 color: "#007bff",
