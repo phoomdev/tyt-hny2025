@@ -75,7 +75,7 @@ Happy New Year</textarea>
     </div>
 
     <button id="shareButton">แชร์</button>
-    <pre id="flexMessageJsonNew"></pre>
+    <pre id="flexMessageJson"></pre>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
@@ -209,7 +209,7 @@ Happy New Year</textarea>
                                     {
                                         type: 'text',
                                         wrap: true,
-                                        color: '#111111',
+                                        color: '#555555',
                                         size: 'sm',
                                         flex: 5,
                                         text: freeText, // ใช้ freeText ที่ดึงมาจาก textarea
@@ -252,9 +252,11 @@ Happy New Year</textarea>
                                                 size: "full"
                                             },
                                         ],
-                                        cornerRadius: "100px",
-                                        width: "90px",
-                                        height: "90px"
+                                        cornerRadius: "20px",
+                                        width: "100px",
+                                        height: "100px",
+                                        alignItems: "center",
+                                        justifyContent: "center"
                                     },
                                 ],
                             },
@@ -280,10 +282,11 @@ Happy New Year</textarea>
                                              uri: 'https://liff.line.me/2006729904-o7RYbjdg',
                                         },
                                         style: "primary",
-                                        color: "#007bff"
+                                        color: "#007bff",
+                                        height: "sm"
                                     }
                                 ],
-                                paddingAll: "xxl"
+                                paddingAll: "sm"
                             },
                             {
                                 type: "box",
@@ -311,18 +314,18 @@ Happy New Year</textarea>
             };
 
             // แปลง Flex Message เป็น JSON string
-            const flexMessageJsonNew = JSON.stringify(flexMessageNew, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+            const flexMessageJson = JSON.stringify(flexMessageNew, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
 
-            // แสดงผล JSON string ใน element ที่มี id="flexMessageJsonNew"
-            //document.getElementById("flexMessageJsonNew").textContent = flexMessageJsonNew;
-            document.getElementById('flexMessageJsonNew').textContent = 'ส่งสำเร็จ';
+            // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
+            //document.getElementById("flexMessageJson").textContent = flexMessageJson;
+            document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
 
             // แชร์ Flex Message
             try {
                 const result = await liff.shareTargetPicker([flexMessageNew]);
                 if (result) {
                     console.log('Message shared successfully:', result);
-                    document.getElementById('flexMessageJsonNew').textContent = 'ส่งสำเร็จ';
+                    document.getElementById('flexMessageJson').textContent = 'ส่งสำเร็จ';
                 } else {
                     console.log('Sharing canceled.');
                     alert('ผู้ใช้ยกเลิกการแชร์ข้อความ');
