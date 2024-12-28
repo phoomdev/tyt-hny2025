@@ -172,7 +172,6 @@ async function shareMsg() {
                                         align: "center",
                                     },
                                 ],
-                                cornerRadius: "20px",
                                 width: "120px",
                                 height: "120px",
                                 alignItems: "center",
