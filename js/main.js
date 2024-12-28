@@ -195,7 +195,7 @@ async function shareMsg() {
                                 action: {
                                     type: "uri",
                                     label: "เขียนการ์ดอวยพรให้เพื่อน",
-                                    uri: 'https://liff.line.me/2006729904-o7RYbjdg',
+                                    uri: 'https://liff.line.me/2006729904-e2nNzwPq',
                                 },
                                 style: "primary",
                                 color: "#007bff",
@@ -257,7 +257,7 @@ async function getUserProfile() {
 
 async function main() {
     await liff.init({
-        liffId: '2006729904-o7RYbjdg', // **อย่าลืมแก้ไข liffId ให้ถูกต้อง**
+        liffId: '2006729904-e2nNzwPq', // **อย่าลืมแก้ไข liffId ให้ถูกต้อง**
     });
     if (liff.isLoggedIn()) {
         console.log('Success');
