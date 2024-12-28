@@ -43,7 +43,7 @@ async function shareMsg() {
     const profile = await liff.getProfile();
 
     // สร้าง Flex Message
-    const flexMessage4 = {
+    const flexMessage1 = {
         type: 'flex',
         altText: `สุขสันต์วันปีใหม่ 2025 นะ โดย ${profile.displayName}`,
         contents: {
@@ -158,24 +158,24 @@ async function shareMsg() {
                                 alignItems: "center",
                                 justifyContent: "center"
                             },
-                        ],
-                    },
-                    {
-                        type: "box",
-                        layout: "vertical",
-                        contents: [
                             {
-                                type: "image",
-                                url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
-                                animated: false,
-                                size: "lg",
-                                aspectMode: "cover"
+                                type: "box",
+                                layout: "vertical",
+                                contents: [
+                                    {
+                                        type: "image",
+                                        url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
+                                        animated: false,
+                                        size: "lg",
+                                        aspectMode: "cover"
+                                    }
+                                ],
+                                cornerRadius: "sm",
+                                alignItems: "center",
+                                justifyContent: "center"
                             }
                         ],
-                        cornerRadius: "sm",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }
+                    },
                 ],
                 alignItems: 'center',
             },
@@ -230,13 +230,13 @@ async function shareMsg() {
     };
 
     // แปลง Flex Message เป็น JSON string
-    // const flexMessageJson = JSON.stringify(flexMessage4, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
+    // const flexMessageJson = JSON.stringify(flexMessage1, null, 2); //  null, 2  ใช้สำหรับ format JSON ให้อ่านง่าย
 
     // แสดงผล JSON string ใน element ที่มี id="flexMessageJson"
     //document.getElementById("flexMessageJson").textContent = flexMessageJson;
     // แชร์ Flex Message
     try {
-        const result = await liff.shareTargetPicker([flexMessage4]);
+        const result = await liff.shareTargetPicker([flexMessage1]);
         if (result) {
             console.log('Message shared successfully:', result);
             alert('ส่งสำเร็จ');
