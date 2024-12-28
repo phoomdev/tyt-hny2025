@@ -121,42 +121,17 @@ async function shareMsg() {
                         justifyContent: 'center',
                     },
                     {
-                        type: 'box',
-                        layout: 'vertical',
-                        margin: 'lg',
+                        type: "box",
+                        layout: "vertical",
                         contents: [
                             {
-                                type: 'text',
+                                type: "text",
                                 wrap: true,
-                                color: '#555555',
-                                size: 'sm',
+                                color: "#666666",
+                                size: "sm",
                                 flex: 5,
                                 text: freeText, // ใช้ freeText ที่ดึงมาจาก textarea
-                                align: 'center',
-                            },
-                            {
-                                type: 'box',
-                                layout: 'baseline',
-                                spacing: 'sm',
-                                contents: [
-                                    {
-                                        type: 'text',
-                                        text: 'โดย',
-                                        color: '#aaaaaa',
-                                        size: 'sm',
-                                        flex: 1,
-                                    },
-                                    {
-                                        type: 'text',
-                                        text: profile.displayName, // ใช้ displayName จาก profile
-                                        wrap: true,
-                                        color: '#007bff',
-                                        size: 'sm',
-                                        flex: 3,
-                                    },
-                                ],
-                                alignItems: "center",
-                                justifyContent: "center"
+                                align: "center"
                             },
                             {
                                 type: "box",
@@ -171,14 +146,15 @@ async function shareMsg() {
                                     }
                                 ],
                                 width: "50%",
-                                cornerRadius: "xxl",
-                                alignItems: "center",
-                                justifyContent: "center"
+                                cornerRadius: "xxl"
                             }
                         ],
-                    },
+                        margin: "lg",
+                        spacing: "lg",
+                        alignItems: "center"
+                    }
                 ],
-                alignItems: 'center',
+                alignItems: "center"
             },
             footer: {
                 type: "box",
