@@ -160,22 +160,22 @@ async function shareMsg() {
                             },
                         ],
                     },
-                    {
-                        type: "box",
-                        layout: "vertical",
-                        contents: [
-                            {
-                                type: "image",
-                                url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
-                                animated: false,
-                                size: "lg",
-                                aspectMode: "cover"
-                            }
-                        ],
-                        cornerRadius: "sm",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }
+                    // {
+                    //     type: "box",
+                    //     layout: "vertical",
+                    //     contents: [
+                    //         {
+                    //             type: "image",
+                    //             url: profile.pictureUrl, // ใช้ pictureUrl จาก profile
+                    //             animated: false,
+                    //             size: "lg",
+                    //             aspectMode: "cover"
+                    //         }
+                    //     ],
+                    //     cornerRadius: "sm",
+                    //     alignItems: "center",
+                    //     justifyContent: "center"
+                    // }
                 ],
                 alignItems: 'center',
             },
