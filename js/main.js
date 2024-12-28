@@ -170,9 +170,8 @@ async function shareMsg() {
                                         aspectMode: "cover"
                                     }
                                 ],
-                                cornerRadius: "lg",
-                                width: "120px",
-                                height: "120px",
+                                width: "50%",
+                                cornerRadius: "xxl",
                                 alignItems: "center",
                                 justifyContent: "center"
                             }
